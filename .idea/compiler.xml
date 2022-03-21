@@ -4,7 +4,9 @@
     <bytecodeTargetLevel target="1.7">
       <module name="WeatherApp.app" target="11" />
       <module name="WeatherApp.base_feature" target="11" />
+      <module name="WeatherApp.di" target="11" />
       <module name="WeatherApp.feature_weather" target="11" />
+      <module name="WeatherApp.navigation" target="11" />
     </bytecodeTargetLevel>
   </component>
 </project>

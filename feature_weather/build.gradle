@@ -3,15 +3,23 @@ plugins {
     id 'org.jetbrains.kotlin.android'
 }
 
+ext {
+    def envProperties = new Properties()
+    envProperties.load(project.rootProject.file("local.properties").newDataInputStream())
+    ext.environmentProperties = envProperties
+}
+
 android {
     compileSdk 31
 
     defaultConfig {
         minSdk 21
         targetSdk 31
-
+        multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         consumerProguardFiles "consumer-rules.pro"
+
+        buildConfigField("String", "API_KEY", environmentProperties['API_KEY'])
     }
 
     buildTypes {
@@ -31,6 +39,10 @@ android {
     viewBinding {
         enabled = true
     }
+
+    buildFeatures {
+        buildConfig = true
+    }
 }
 
 dependencies {
@@ -42,7 +54,13 @@ dependencies {
     implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.4.1'
     implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.4.1'
     implementation project(path: ':base_feature')
+    implementation project(path: ':domain')
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.3'
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
+
+    //koin
+    implementation 'io.insert-koin:koin-android:2.2.3'
+    implementation 'io.insert-koin:koin-androidx-scope:2.2.3'
+    implementation 'io.insert-koin:koin-androidx-viewmodel:2.2.3'
 }
