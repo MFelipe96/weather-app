@@ -1,6 +1,7 @@
 package com.example.data.data_remote
 
 import com.example.data.data_remote.WeatherService.WeatherAPI.GET_WEATHER_INFO
+import com.example.data.data_remote.WeatherService.WeatherAPI.LANGUAGE
 import com.example.data.data_remote.model.WeatherInformationResponse
 import retrofit2.Response
 import retrofit2.http.GET
@@ -12,10 +13,12 @@ interface WeatherService {
     suspend fun getWeatherInformation(
         @Query("lat") latitude: Double,
         @Query("lon") longitude: Double,
-        @Query("appid") apiKey: String
+        @Query("appid") apiKey: String,
+        @Query("lang") language: String = LANGUAGE
     ): Response<WeatherInformationResponse>
 
     object WeatherAPI{
+        const val LANGUAGE = "pt"
         const val BASE_URL = "https://api.openweathermap.org/"
         const val GET_WEATHER_INFO = BASE_URL + "data/2.5/weather"
     }

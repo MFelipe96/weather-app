@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="tempMaxAndMin">%s°C / %s°C</string>
+    <string name="metric">°C\n%s</string>
+</resources>
