@@ -1,4 +1,4 @@
-package com.example.feature_weather
+package com.example.feature_weather.list_of_cities
 
 import android.view.LayoutInflater
 import android.view.ViewGroup

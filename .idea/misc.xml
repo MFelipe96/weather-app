@@ -6,8 +6,10 @@
         <entry key="..\:/Users/Marcos Felipe/AppData/Local/Android/Sdk/platforms/android-31/data/res/drawable/ic_lock_idle_alarm.xml" value="0.2275" />
         <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/app/src/main/res/layout/activity_main.xml" value="0.15948275862068967" />
         <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/base_feature/src/main/res/drawable/ic_location_on_24.xml" value="0.2275" />
+        <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/feature_weather/src/main/res/layout/fragment_city_details.xml" value="0.22" />
         <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/feature_weather/src/main/res/layout/list_of_cities_adapter_item.xml" value="0.2604166666666667" />
         <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/feature_weather/src/main/res/layout/list_of_cities_fragment.xml" value="0.25" />
+        <entry key="..\:/Users/Marcos Felipe/Documents/Projects/weather-app/feature_weather/src/main/res/layout/weather_details_item.xml" value="0.2833333333333333" />
       </map>
     </option>
   </component>

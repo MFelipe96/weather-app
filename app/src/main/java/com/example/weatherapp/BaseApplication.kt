@@ -4,6 +4,7 @@ import android.app.Application
 import androidx.appcompat.app.AppCompatDelegate
 import com.example.di.dataModule
 import com.example.di.domainModule
+import com.example.di.navigationModule
 import com.example.di.presentationModule
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
@@ -18,7 +19,8 @@ class BaseApplication: Application() {
             modules(
                 presentationModule,
                 domainModule,
-                dataModule
+                dataModule,
+                navigationModule
             ).androidContext(applicationContext)
         }
     }
