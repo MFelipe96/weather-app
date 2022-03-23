@@ -3,7 +3,7 @@ package com.example.feature_weather.list_of_cities
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import com.example.base_feature.extensions.*
-import com.example.domain.model.WeatherInformationModel
+import com.example.domain.model.weather_info.WeatherInformationModel
 import com.example.domain.use_case.WeatherInformationUseCase
 import com.example.feature_weather.BuildConfig
 import org.koin.core.component.KoinComponent

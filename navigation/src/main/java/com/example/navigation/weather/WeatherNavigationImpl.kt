@@ -3,16 +3,19 @@ package com.example.navigation.weather
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.example.domain.model.WeatherInformationModel
+import com.example.domain.model.weather_info.WeatherInformationModel
 import com.example.feature_weather.WeatherNavigation
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_DESCRIPTION
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_FEELSLIKE
+import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_HUMIDITY
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_NAME
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_PRESSURE
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_TEMP
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_TEMP_MAX
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_INFORMATION_TEMP_MIN
 import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_MAIN
+import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_SPEED_WIND
+import com.example.feature_weather.WeatherNavigation.Companion.ARG_WEATHER_VISIBILITY
 import com.example.navigation.R
 
 class WeatherNavigationImpl(
@@ -30,8 +33,10 @@ class WeatherNavigationImpl(
                 ARG_WEATHER_INFORMATION_TEMP_MAX to weatherInformationModel.main.tempMax,
                 ARG_WEATHER_INFORMATION_FEELSLIKE to weatherInformationModel.main.feelsLike,
                 ARG_WEATHER_INFORMATION_PRESSURE to weatherInformationModel.main.pressure,
-                ARG_WEATHER_MAIN to weatherInformationModel.weather[0].main
-
+                ARG_WEATHER_MAIN to weatherInformationModel.weather[0].main,
+                ARG_WEATHER_SPEED_WIND to weatherInformationModel.wind.speed,
+                ARG_WEATHER_VISIBILITY to weatherInformationModel.visibility,
+                ARG_WEATHER_INFORMATION_HUMIDITY to weatherInformationModel.main.humidity
             )
         )
     }

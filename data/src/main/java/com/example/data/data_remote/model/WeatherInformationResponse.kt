@@ -12,7 +12,9 @@ data class WeatherInformationResponse(
     @SerializedName("main")
     val main: Main,
     @SerializedName("name")
-    val placeName: String
+    val placeName: String,
+    @SerializedName("visibility")
+    val visibility: Int
 )
 
 data class Coordinates(

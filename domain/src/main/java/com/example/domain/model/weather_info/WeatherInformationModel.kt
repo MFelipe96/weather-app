@@ -1,11 +1,12 @@
-package com.example.domain.model
+package com.example.domain.model.weather_info
 
 data class WeatherInformationModel(
     val coordinates: Coordinates,
     val weather: List<Weather>,
     val wind: Wind,
     val main: Main,
-    val placeName: String
+    val placeName: String,
+    val visibility: Int
 )
 
 data class Coordinates(

@@ -9,7 +9,7 @@ import com.example.base_feature.core.BaseLocation
 import com.example.base_feature.extensions.dateFormatted
 import com.example.base_feature.extensions.kelvinToCelsius
 import com.example.base_feature.extensions.navDirections
-import com.example.domain.model.WeatherInformationModel
+import com.example.domain.model.weather_info.WeatherInformationModel
 import com.example.feature_weather.R
 import com.example.feature_weather.WeatherNavigation
 import java.util.*

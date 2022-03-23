@@ -1,7 +1,7 @@
 package com.example.domain.use_case
 
 import com.example.domain.core.UseCase
-import com.example.domain.model.WeatherInformationModel
+import com.example.domain.model.weather_info.WeatherInformationModel
 import com.example.domain.repository.WeatherInformationRepository
 import kotlinx.coroutines.CoroutineScope
 

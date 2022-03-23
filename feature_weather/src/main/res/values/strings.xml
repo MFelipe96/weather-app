@@ -5,4 +5,16 @@
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="see_details_text">ver detalhes</string>
     <string name="loading_text">Carregando...</string>
+    <string name="details_tilte">Detalhes do tempo</string>
+    <string name="feels_like">%s°C</string>
+    <string name="visibility">%skm</string>
+    <string name="speed">%s km/h</string>
+    <string name="pressure">%shPa</string>
+    <string name="temp_max">%s°C</string>
+    <string name="feels_like_title">Sensação térmica de</string>
+    <string name="humidity_title">Umidade</string>
+    <string name="speed_title">Vento</string>
+    <string name="temp_max_title">Temp. máx</string>
+    <string name="visibility_title">Visibilidade</string>
+    <string name="pressure_title">Pressão atmosférica</string>
 </resources>
