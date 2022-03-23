@@ -20,6 +20,7 @@ class ListOfCitiesFragment : BaseLocation<ListOfCitiesFragmentBinding>() {
     private val navigation: WeatherNavigation by navDirections()
     private var isToOpenDetailsScreen = false
     private val cities = Cities
+    private var currentLocation = Pair(0.0, 0.0)
 
     override fun setupView() {
         super.setupView()
@@ -56,7 +57,10 @@ class ListOfCitiesFragment : BaseLocation<ListOfCitiesFragmentBinding>() {
             adapter = ListOfCitiesAdapter(
                 {
                     setLoadingToVisible()
-                    viewModel.getWeatherInformation(it.first.longitude, it.first.latitude)
+                    if(it.first.name == "Local atual")
+                        viewModel.getWeatherInformation(currentLocation.second, currentLocation.first)
+                    else
+                        viewModel.getWeatherInformation(it.first.longitude, it.first.latitude)
                     isToOpenDetailsScreen = it.second
                 }, cities)
         }
@@ -64,6 +68,7 @@ class ListOfCitiesFragment : BaseLocation<ListOfCitiesFragmentBinding>() {
 
     override fun getWeatherFromCurrentLocation(latitude: Double, longitude: Double) {
         super.getWeatherFromCurrentLocation(latitude, longitude)
+        currentLocation = Pair(latitude, longitude)
         viewModel.getWeatherInformation(long = longitude, lat = latitude)
     }
 
