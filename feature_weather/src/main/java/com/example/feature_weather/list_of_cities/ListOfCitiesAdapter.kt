@@ -7,7 +7,6 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.domain.model.city.CityModel
 import com.example.feature_weather.R
 import com.example.feature_weather.databinding.ListOfCitiesAdapterItemBinding
-import kotlin.collections.ArrayList
 
 class ListOfCitiesAdapter(
     private val listener: (Pair<CityModel, Boolean>) -> Unit,
@@ -15,7 +14,7 @@ class ListOfCitiesAdapter(
 ): RecyclerView.Adapter<ListOfCitiesAdapter.ViewHolder>() {
 
     private var idSelected: Int? = null
-    private var cityCard = ArrayList<LinearLayoutCompat>()
+    private var previousCityCard: LinearLayoutCompat? = null
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int) =
         ViewHolder(
@@ -38,18 +37,20 @@ class ListOfCitiesAdapter(
 
         fun bindItem(cityModel: CityModel) {
             binding.city.text = cityModel.name
+
             binding.seeDetails.setOnClickListener {
                 listener(Pair(cityModel, true))
             }
+
             binding.cityCard.setOnClickListener {
                 listener(Pair(cityModel, false))
                 if(idSelected != adapterPosition) {
-                    cityCard[idSelected ?: 0].setBackgroundResource(R.color.orange_light)
+                    previousCityCard?.setBackgroundResource(R.color.orange_light)
                     binding.linear.setBackgroundResource(R.drawable.border_card_selected)
                 }
                 idSelected = adapterPosition
+                previousCityCard = binding.linear
             }
-            cityCard.add(binding.linear)
         }
     }
 
