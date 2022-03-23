@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="permission_denied_message">Permissão negada. O app pode não funcionar como o esperado.</string>
+    <string name="warning_message">Verifique o status da sua conexão com a internet e localização.</string>
+</resources>

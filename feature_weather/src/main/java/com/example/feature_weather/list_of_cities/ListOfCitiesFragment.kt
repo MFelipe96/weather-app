@@ -1,10 +1,11 @@
 package com.example.feature_weather.list_of_cities
 
 import android.view.LayoutInflater
-import com.example.base_feature.core.BaseFragment
+import android.view.View
 import com.example.feature_weather.databinding.ListOfCitiesFragmentBinding
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.LifecycleOwner
+import com.example.base_feature.core.BaseLocation
 import com.example.base_feature.extensions.dateFormatted
 import com.example.base_feature.extensions.kelvinToCelsius
 import com.example.base_feature.extensions.navDirections
@@ -13,18 +14,17 @@ import com.example.feature_weather.R
 import com.example.feature_weather.WeatherNavigation
 import java.util.*
 
-class ListOfCitiesFragment : BaseFragment<ListOfCitiesFragmentBinding>() {
+class ListOfCitiesFragment : BaseLocation<ListOfCitiesFragmentBinding>() {
 
     private val viewModel: ListOfCitiesViewModel by viewModels()
     private val navigation: WeatherNavigation by navDirections()
-    private var currentLocation = true
+    private var isToOpenDetailsScreen = false
+    private val cities = Cities
 
     override fun setupView() {
         super.setupView()
         setupAdapter()
-        viewModel.getWeatherInformation(
-            Cities.getList().first().longitude,  Cities.getList().first().latitude
-        )
+        setLoadingToVisible()
     }
 
     override fun onCreateViewBinding(inflater: LayoutInflater) =
@@ -35,7 +35,8 @@ class ListOfCitiesFragment : BaseFragment<ListOfCitiesFragmentBinding>() {
         viewModel.weatherInformationLiveData.observe(owner
         ) {
             setInformation(it)
-            if(!currentLocation) navigation.goToDetails(it)
+            setLoadingToGone()
+            if(isToOpenDetailsScreen) navigation.goToDetails(it)
         }
     }
 
@@ -52,15 +53,30 @@ class ListOfCitiesFragment : BaseFragment<ListOfCitiesFragmentBinding>() {
     private fun setupAdapter(){
         with(binding.recyclerView){
             setHasFixedSize(true)
-            adapter = ListOfCitiesAdapter {
-                viewModel.getWeatherInformation(it.longitude, it.latitude)
-                currentLocation = false
-            }
+            adapter = ListOfCitiesAdapter(
+                {
+                    setLoadingToVisible()
+                    viewModel.getWeatherInformation(it.first.longitude, it.first.latitude)
+                    isToOpenDetailsScreen = it.second
+                }, cities)
         }
+    }
+
+    override fun getWeatherFromCurrentLocation(latitude: Double, longitude: Double) {
+        super.getWeatherFromCurrentLocation(latitude, longitude)
+        viewModel.getWeatherInformation(long = longitude, lat = latitude)
+    }
+
+    private fun setLoadingToVisible(){
+        binding.progressBar.visibility = View.VISIBLE
+    }
+
+    private fun setLoadingToGone(){
+        binding.progressBar.visibility = View.GONE
     }
 
     override fun onDestroyView() {
         super.onDestroyView()
-        currentLocation = true
+        isToOpenDetailsScreen = false
     }
 }

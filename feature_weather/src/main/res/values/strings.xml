@@ -2,6 +2,7 @@
 <resources>
     <string name="tempMaxAndMin">%s°C / %s°C</string>
     <string name="metric">°C\n%s</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="see_details_text">ver detalhes</string>
+    <string name="loading_text">Carregando...</string>
 </resources>
